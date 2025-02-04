@@ -1,0 +1,55 @@
+services:
+
+  nats-server:
+    build: ./microservice-gateway/nats
+    ports:
+      - 8222:8222
+      - 4222:4222
+    restart: always
+
+  microservice-gateway:
+    build: ./microservice-gateway
+    ports:
+      - ${CLIENT_GATEWAY_PORT}:3000
+    volumes:
+      - ./microservice-gateway/src:/usr/src/app/src
+      - ./microservice-gateway/.env:/usr/src/app/.env 
+      - ./microservice-gateway/package.json:/usr/src/app/package.json
+    command: yarn start:dev
+    restart: always
+
+  beneficiary-microservice:
+    build: ./beneficiary-microservice
+    volumes:
+      - ./beneficiary-microservice/src:/usr/src/app/src
+      - ./beneficiary-microservice/.env:/usr/src/app/.env
+      - ./beneficiary-microservice/package.json:/usr/src/app/package.json
+    command: yarn start:dev
+    restart: always
+
+  general-microservice:
+    build: ./general-microservice
+    volumes:
+      - ./general-microservice/src:/usr/src/app/src
+      - ./general-microservice/.env:/usr/src/app/.env
+      - ./general-microservice/package.json:/usr/src/app/package.json
+    command: yarn start:dev
+    restart: always
+
+  auth-microservice:
+    build: ./auth-microservice
+    volumes:
+      - ./auth-microservice/src:/usr/src/app/src
+      - ./auth-microservice/.env:/usr/src/app/.env
+      - ./auth-microservice/package.json:/usr/src/app/package.json
+    command: yarn start:dev
+    restart: always
+
+  kiosk-microservice:
+    build: ./kiosk-microservice
+    volumes:
+      - ./kiosk-microservice/src:/usr/src/app/src
+      - ./kiosk-microservice/.env:/usr/src/app/.env
+      - ./kiosk-microservice/package.json:/usr/src/app/package.json
+    command: yarn start:dev
+    restart: always
