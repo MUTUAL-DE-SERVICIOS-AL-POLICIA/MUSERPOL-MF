@@ -1,59 +1,23 @@
 services:
 
-  nats-server:
-    build: ./microservice-gateway/nats
-    ports:
-      - 4222:4222
-    restart: always
-
-  microservice-gateway:
+  beneficiary-frontend:
     build: 
-      context: ./microservice-gateway
+      context: ./beneficiary-frontend
       dockerfile: dockerfile.prod
     ports:
-      - ${CLIENT_GATEWAY_PORT}:3000
+      - ${NEXT_PUBLIC_SERVER_PORT_FRONTEND}:3001
     volumes:
-      - ./microservice-gateway/src:/usr/src/app/src
-      - ./microservice-gateway/.env:/usr/src/app/.env
-      - ./microservice-gateway/package.json:/usr/src/app/package.json
+      - ./beneficiary-frontend:/usr/src/app
+    command: yarn start -p ${NEXT_PUBLIC_SERVER_PORT_FRONTEND} --hostname 0.0.0.0
     restart: always
 
-  beneficiary-microservice:
+  login-hub-frontend:
     build: 
-      context: ./beneficiary-microservice
+      context: ./login-hub-frontend
       dockerfile: dockerfile.prod
+    ports:
+      - ${LOGIN_FRONTEND_PORT}:3002
     volumes:
-      - ./beneficiary-microservice/src:/usr/src/app/src
-      - ./beneficiary-microservice/.env:/usr/src/app/.env
-      - ./beneficiary-microservice/package.json:/usr/src/app/package.json
-    restart: always
-
-  general-microservice:
-    build: 
-      context: ./general-microservice
-      dockerfile: dockerfile.prod
-    volumes:
-      - ./general-microservice/src:/usr/src/app/src
-      - ./general-microservice/.env:/usr/src/app/.env
-      - ./general-microservice/package.json:/usr/src/app/package.json
-    restart: always
-
-  auth-microservice:
-    build: 
-      context: ./auth-microservice
-      dockerfile: dockerfile.prod
-    volumes:
-      - ./auth-microservice/src:/usr/src/app/src
-      - ./auth-microservice/.env:/usr/src/app/.env
-      - ./auth-microservice/package.json:/usr/src/app/package.json
-    restart: always
-
-  kiosk-microservice:
-    build: 
-      context: ./kiosk-microservice
-      dockerfile: dockerfile.prod
-    volumes:
-      - ./kiosk-microservice/src:/usr/src/app/src
-      - ./kiosk-microservice/.env:/usr/src/app/.env
-      - ./kiosk-microservice/package.json:/usr/src/app/package.json
+      - ./login-hub-frontend:/usr/src/app
+    command: yarn start -p ${LOGIN_FRONTEND_PORT} --hostname 0.0.0.0
     restart: always
