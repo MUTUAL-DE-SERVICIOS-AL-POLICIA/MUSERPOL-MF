@@ -3,7 +3,7 @@ services:
   beneficiary-frontend:
     build: ./beneficiary-frontend
     ports:
-      - ${NEXT_PUBLIC_SERVER_PORT_FRONTEND}:3001
+      - ${NEXT_PUBLIC_SERVER_PORT_FRONTEND}:3002
     volumes:
       - ./beneficiary-frontend:/usr/src/app
     command: yarn dev -p ${NEXT_PUBLIC_SERVER_PORT_FRONTEND} --hostname 0.0.0.0
@@ -12,7 +12,7 @@ services:
   login-hub-frontend:
     build: ./login-hub-frontend
     ports:
-      - ${LOGIN_FRONTEND_PORT}:3002
+      - ${LOGIN_FRONTEND_PORT}:3001
     volumes:
       - ./login-hub-frontend:/usr/src/app
     command: yarn dev -p ${LOGIN_FRONTEND_PORT} --hostname 0.0.0.0
