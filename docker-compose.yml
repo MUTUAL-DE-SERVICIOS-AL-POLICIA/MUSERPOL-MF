@@ -5,7 +5,9 @@ services:
     ports:
       - ${NEXT_PUBLIC_SERVER_PORT_FRONTEND}:3002
     volumes:
-      - ./beneficiary-frontend:/usr/src/app
+      - ./beneficiary-frontend:/usr/app
+      - /usr/app/node_modules
+      - /usr/app/.next
     command: yarn dev -p ${NEXT_PUBLIC_SERVER_PORT_FRONTEND} --hostname 0.0.0.0
     restart: always
 
@@ -14,6 +16,8 @@ services:
     ports:
       - ${LOGIN_FRONTEND_PORT}:3001
     volumes:
-      - ./login-hub-frontend:/usr/src/app
+      - ./login-hub-frontend:/usr/app
+      - /usr/app/node_modules
+      - /usr/app/.next
     command: yarn dev -p ${LOGIN_FRONTEND_PORT} --hostname 0.0.0.0
     restart: always
