@@ -5,10 +5,11 @@ services:
       context: ./beneficiary-frontend
       dockerfile: dockerfile.prod
     ports:
-      - ${NEXT_PUBLIC_SERVER_PORT_FRONTEND}:3002
-    volumes:
-      - ./beneficiary-frontend:/usr/src/app
-    command: yarn start -p ${NEXT_PUBLIC_SERVER_PORT_FRONTEND} --hostname 0.0.0.0
+      - ${NEXT_PUBLIC_SERVER_PORT_FRONTEND}:${NEXT_PUBLIC_SERVER_PORT_FRONTEND}
+    environment:
+      - NODE_ENV=production
+      - PORT=${NEXT_PUBLIC_SERVER_PORT_FRONTEND}
+      - HOSTNAME=0.0.0.0
     restart: always
 
   login-hub-frontend:
@@ -16,8 +17,9 @@ services:
       context: ./login-hub-frontend
       dockerfile: dockerfile.prod
     ports:
-      - ${LOGIN_FRONTEND_PORT}:3001
-    volumes:
-      - ./login-hub-frontend:/usr/src/app
-    command: yarn start -p ${LOGIN_FRONTEND_PORT} --hostname 0.0.0.0
+      - ${LOGIN_FRONTEND_PORT}:${LOGIN_FRONTEND_PORT}
+    environment:
+      - NODE_ENV=production
+      - PORT=${LOGIN_FRONTEND_PORT}
+      - HOSTNAME=0.0.0.0
     restart: always
