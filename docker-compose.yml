@@ -3,7 +3,7 @@ services:
   beneficiary-frontend:
     build: ./beneficiary-frontend
     ports:
-      - ${NEXT_PUBLIC_SERVER_PORT_FRONTEND}:3002
+      - ${NEXT_PUBLIC_SERVER_PORT_FRONTEND}:${NEXT_PUBLIC_SERVER_PORT_FRONTEND}
     volumes:
       - ./beneficiary-frontend:/usr/app
       - /usr/app/node_modules
@@ -14,7 +14,7 @@ services:
   login-hub-frontend:
     build: ./login-hub-frontend
     ports:
-      - ${LOGIN_FRONTEND_PORT}:3001
+      - ${LOGIN_FRONTEND_PORT}:${LOGIN_FRONTEND_PORT}
     volumes:
       - ./login-hub-frontend:/usr/app
       - /usr/app/node_modules
