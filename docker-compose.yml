@@ -8,6 +8,7 @@ services:
       - ./beneficiary-frontend/src:/app/src
       - ./beneficiary-frontend/.env:/app/.env 
       - ./beneficiary-frontend/package.json:/app/package.json
+      - ./beneficiary-frontend/public:/app/public
       - /app/node_modules
       - /app/.next
     command: yarn dev -p ${NEXT_PUBLIC_SERVER_PORT_FRONTEND} --hostname 0.0.0.0
@@ -21,6 +22,7 @@ services:
       - ./login-hub-frontend/src:/app/src
       - ./login-hub-frontend/.env:/app/.env
       - ./login-hub-frontend/package.json:/app/package.json
+      - ./login-hub-frontend/public:/app/public
       - /app/node_modules
       - /app/.next
     command: yarn dev -p ${LOGIN_FRONTEND_PORT} --hostname 0.0.0.0
