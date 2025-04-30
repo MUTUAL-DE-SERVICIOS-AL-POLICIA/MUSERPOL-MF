@@ -1,6 +1,6 @@
 services:
 
-  Beneficiary-Interface:
+  beneficiary-interface:
     build: 
       context: ./Beneficiary-Interface
       dockerfile: dockerfile.prod
@@ -12,7 +12,7 @@ services:
       - HOSTNAME=0.0.0.0
     restart: always
 
-  Login-Hub-Interface:
+  login-hub-interface:
     build: 
       context: ./Login-Hub-Interface
       dockerfile: dockerfile.prod
