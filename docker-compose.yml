@@ -1,6 +1,6 @@
 services:
 
-  Beneficiary-Interface:
+  beneficiary-interface:
     build: ./Beneficiary-Interface
     ports:
       - ${NEXT_PUBLIC_SERVER_PORT_FRONTEND}:${NEXT_PUBLIC_SERVER_PORT_FRONTEND}
@@ -14,7 +14,7 @@ services:
     command: yarn dev -p ${NEXT_PUBLIC_SERVER_PORT_FRONTEND} --hostname 0.0.0.0
     restart: always
 
-  Login-Hub-Interface:
+  login-hub-interface:
     build: ./Login-Hub-Interface
     ports:
       - ${LOGIN_FRONTEND_PORT}:${LOGIN_FRONTEND_PORT}
