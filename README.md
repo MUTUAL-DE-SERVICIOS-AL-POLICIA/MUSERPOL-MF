@@ -5,7 +5,7 @@
 1. Clonar el repositorio forkeado e ingresar a la misma
 
 ```
-cd MUSERPOL-MF
+cd Module-Interfaces-Launcher
 ```
 
 2. Crear un .env basado en el .env.example y llenar las variables de entorno correspondientes
