@@ -1,6 +1,6 @@
-[submodule "beneficiary-frontend"]
-	path = beneficiary-frontend
-	url = https://github.com/MUTUAL-DE-SERVICIOS-AL-POLICIA/beneficiary-frontend.git
-[submodule "login-hub-frontend"]
-	path = login-hub-frontend
-	url = https://github.com/MUTUAL-DE-SERVICIOS-AL-POLICIA/login-hub-frontend.git
+[submodule "Beneficiary-Interface"]
+	path = Beneficiary-Interface
+	url = https://github.com/MUTUAL-DE-SERVICIOS-AL-POLICIA/Beneficiary-Interface.git
+[submodule "Login-Hub-Interface"]
+	path = Login-Hub-Interface
+	url = https://github.com/MUTUAL-DE-SERVICIOS-AL-POLICIA/Login-Hub-Interface.git

@@ -25,7 +25,7 @@ git submodule update --init --recursive
 4. Crear un .env basado en su propio .env. example y llenar las variables de entorno correspondientes para cada sub módulo o proyecto frontend
 
 ```
-cd beneficiary-frontend
+cd Beneficiary-Interface
 ```
 
 ```
@@ -35,7 +35,7 @@ cp .env.example .env
 Configurar las variables de entorno correspondientes y salir `cd ..`
 
 ```
-cd login-hub-frontend
+cd Login-Hub-Interface
 ```
 
 ```
@@ -67,7 +67,7 @@ docker compose -f docker-compose.prod.yml build --no-cache && docker compose -f 
 Cuando ya se tiene el los sub módulos se debe ingresar a cada uno y realizar lo siguiente
 
 ```
-cd beneficiary-frontend
+cd Beneficiary-Interface
 ```
 
 ```
@@ -75,14 +75,14 @@ checkout main
 ```
 
 ```
-git remote add origin https://github.com/{nombre_colaborador}/beneficiary-frontend.git
-git remote add upstream https://github.com/MUTUAL-DE-SERVICIOS-AL-POLICIA/beneficiary-frontend.git
+git remote add origin https://github.com/{nombre_colaborador}/Beneficiary-Interface.git
+git remote add upstream https://github.com/MUTUAL-DE-SERVICIOS-AL-POLICIA/Beneficiary-Interface.git
 ```
 
 Para redirigir a la rama principal `cd ..`
 
 ```
-cd login-hub-frontend
+cd Login-Hub-Interface
 ```
 
 ```
@@ -90,8 +90,8 @@ checkout main
 ```
 
 ```
-git remote add origin https://github.com/{nombre_colaborador}/login-hub-frontend.git
-git remote add upstream https://github.com/MUTUAL-DE-SERVICIOS-AL-POLICIA/login-hub-frontend.git
+git remote add origin https://github.com/{nombre_colaborador}/Login-Hub-Interface.git
+git remote add upstream https://github.com/MUTUAL-DE-SERVICIOS-AL-POLICIA/Login-Hub-Interface.git
 ```
 
 Y PODRÁN REALIZAR LOS PULL REQUEST COMO SE HACE REGULARMENTE DE LOCAL -> REPOSITORIO PERSONAL -> REPOSITORIO PRINCIPAL

@@ -1,8 +1,8 @@
 services:
 
-  beneficiary-frontend:
+  Beneficiary-Interface:
     build: 
-      context: ./beneficiary-frontend
+      context: ./Beneficiary-Interface
       dockerfile: dockerfile.prod
     ports:
       - ${NEXT_PUBLIC_SERVER_PORT_FRONTEND}:${NEXT_PUBLIC_SERVER_PORT_FRONTEND}
@@ -12,9 +12,9 @@ services:
       - HOSTNAME=0.0.0.0
     restart: always
 
-  login-hub-frontend:
+  Login-Hub-Interface:
     build: 
-      context: ./login-hub-frontend
+      context: ./Login-Hub-Interface
       dockerfile: dockerfile.prod
     ports:
       - ${LOGIN_FRONTEND_PORT}:${LOGIN_FRONTEND_PORT}
