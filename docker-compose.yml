@@ -5,10 +5,7 @@ services:
     ports:
       - ${NEXT_PUBLIC_SERVER_PORT_FRONTEND}:${NEXT_PUBLIC_SERVER_PORT_FRONTEND}
     volumes:
-      - ./Beneficiary-Interface/src:/app/src
-      - ./Beneficiary-Interface/.env:/app/.env 
-      - ./Beneficiary-Interface/package.json:/app/package.json
-      - ./Beneficiary-Interface/public:/app/public
+      - ./Beneficiary-Interface:/app
       - /app/node_modules
       - /app/.next
     command: yarn dev -p ${NEXT_PUBLIC_SERVER_PORT_FRONTEND} --hostname 0.0.0.0
@@ -19,10 +16,7 @@ services:
     ports:
       - ${LOGIN_FRONTEND_PORT}:${LOGIN_FRONTEND_PORT}
     volumes:
-      - ./Login-Hub-Interface/src:/app/src
-      - ./Login-Hub-Interface/.env:/app/.env
-      - ./Login-Hub-Interface/package.json:/app/package.json
-      - ./Login-Hub-Interface/public:/app/public
+      - ./Login-Hub-Interface:/app
       - /app/node_modules
       - /app/.next
     command: yarn dev -p ${LOGIN_FRONTEND_PORT} --hostname 0.0.0.0
